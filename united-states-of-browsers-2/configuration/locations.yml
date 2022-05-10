@@ -1,0 +1,17 @@
+local:
+  firefox:
+    profiles:
+      - default
+      - default-release
+    nt:
+      - C:\\Users\\kshit_7khjmc8\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles
+      - C:\\Users\\kshit_7khjmc8\\AppData\\Roaming\\Mozilla\\Firefox\\Profi
+    linux: null
+
+  edge:
+    profiles:
+      - Default
+      - Profile 1
+    nt:
+      - C:\\Users\\kshit_7khjmc8\\AppData\\Local\\Microsoft\\Edge\\User Data
+    linux: null

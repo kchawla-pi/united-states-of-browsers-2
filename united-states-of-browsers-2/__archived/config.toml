@@ -1,0 +1,13 @@
+local.firefox.profile.dirpaths.nt = [ "C:\\Users\\kshit_7khjmc8\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles",]
+local.firefox.profile.dirpaths.linux = [ "C:\\Users\\kshit_7khjmc8\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles",]
+local.firefox.profile.dirpaths.macos = [ "C:\\Users\\kshit_7khjmc8\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles",]
+local.firefox.profile.names = ["default-release"]
+local.firefox.db."places.sqlite".moz_places = ["id", "url", "title", "visit_count", "last_visit_date"]
+local.firefox.db.type = "sqlite"
+
+local.chrome.profile.dirpaths.nt = [ "C:\\Users\\kshit_7khjmc8\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\sq9llwbz.default-release",]
+local.chrome.profile.dirpaths.linux = [ "C:\\Users\\kshit_7khjmc8\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\sq9llwbz.default-release",]
+local.chrome.profile.dirpaths.macos = [ "C:\\Users\\kshit_7khjmc8\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\sq9llwbz.default-release",]
+local.chrome.profile.names = ["default"]
+local.chrome.db.history.urls = ["id", "url", "title", "visit_count", "last_visit_time"]
+local.chrome.db.type = "sqlite"

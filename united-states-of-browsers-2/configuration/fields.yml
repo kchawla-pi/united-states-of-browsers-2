@@ -1,0 +1,26 @@
+local:
+  firefox:
+    history:
+      type: sqlite
+      file: places.sqlite
+      collection: moz_places
+      fields:
+        - id
+        - url
+        - title
+        - visit_count
+        - last_visit_date
+
+  edge:
+    history:
+      type: sqlite
+      file: History
+      collection: urls
+      fields:
+        - id
+        - url
+        - title
+        - visit_count
+        - typed_count
+        - last_visit_time
+        - hidden

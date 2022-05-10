@@ -1,0 +1,7 @@
+[local]
+
+product_type = browser
+product_name = firefox
+profile_names = [default, default-release]
+
+profile_dirs

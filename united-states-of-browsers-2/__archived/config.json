@@ -1,0 +1,58 @@
+{
+  "profiles": {
+    "local": {
+      "source": [
+        {
+          "type": "browser",
+          "name": "chrome",
+          "database type": "sqlite",
+          "profiles": {
+            "dirpath": "<insert>",
+            "names": [
+              "default"
+            ]
+          },
+          "info": [
+            {
+              "type": "history",
+              "database": "history",
+              "collection": "urls",
+              "fields": [
+                "id",
+                "url",
+                "title",
+                "visit_count",
+                "last_visit_time"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "browser",
+          "name": "firefox",
+          "database type": "sqlite",
+          "profiles": {
+            "dirpath": "<insert>",
+            "names": [
+              "default"
+            ]
+          },
+          "info": [
+            {
+              "type": "history",
+              "database": "palces.sqlite",
+              "collection": "moz_places",
+              "fields": [
+                "id",
+                "url",
+                "title",
+                "visit_count",
+                "last_visit_time"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
