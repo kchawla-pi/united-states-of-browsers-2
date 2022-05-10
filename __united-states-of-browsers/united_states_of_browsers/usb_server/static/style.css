@@ -1,0 +1,68 @@
+* {
+    font-family: sans-serif;
+}
+
+h1 {
+    color: red ;
+    /*font-family: Roboto, sans-serif;*/
+    font-size: 12px;
+    }
+#app-name {color: inherit;}
+
+#search-box {
+    margin-left: 7%;
+    width: 50%;
+    alignment: center;
+    }
+
+#search-section {
+    background: white;
+    position: sticky;
+    z-index: 1;
+    top: 0px;
+}
+
+.date {
+    margin-left: 7%;
+    alignment: center;
+    }
+
+.table {
+    /*max-height: 460px;*/
+    max-width: 96%;
+    overflow-x: hidden;
+    display: block;
+    margin-left: 4%;
+    }
+th {
+    position: sticky;
+    top: 5px;
+}
+
+td {
+    max-width: 420px;
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }
+.right-text { text-align: right;}
+
+.td-crit {
+    max-width: 970px;
+    min-width: 969px;
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: normal;
+    }
+
+
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+tr:hover {
+    background-color: yellow;
+}
+
+
+

@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6.1
+
+    working_directory: ~/united-states-of-browsers
+
+    steps:
+      - checkout
+
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+            pip install -r requirements-dev.txt
+            pip install sqlitefts
+            pip install .
+
+      - run:
+          name: run tests
+          command: |
+            . venv/bin/activate
+            pytest -n 2
+
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
