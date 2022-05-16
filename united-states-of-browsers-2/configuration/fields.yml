@@ -1,8 +1,8 @@
 local:
   firefox:
     history:
-      type: sqlite
-      file: places.sqlite
+      db_type: sqlite
+      db_file: places.sqlite
       collection: moz_places
       fields:
         - id
@@ -13,8 +13,8 @@ local:
 
   edge:
     history:
-      type: sqlite
-      file: History
+      db_type: sqlite
+      db_file: History
       collection: urls
       fields:
         - id

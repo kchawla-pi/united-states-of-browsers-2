@@ -6,7 +6,8 @@ local:
     nt:
       - C:\\Users\\kshit_7khjmc8\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles
       - C:\\Users\\kshit_7khjmc8\\AppData\\Roaming\\Mozilla\\Firefox\\Profi
-    linux: null
+    posix:
+      - ~/.mozilla/firefox/
 
   edge:
     profiles:
@@ -14,4 +15,5 @@ local:
       - Profile 1
     nt:
       - C:\\Users\\kshit_7khjmc8\\AppData\\Local\\Microsoft\\Edge\\User Data
-    linux: null
+    posix:
+      - null

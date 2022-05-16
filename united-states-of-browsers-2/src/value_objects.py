@@ -2,8 +2,9 @@ import os
 from enum import Enum
 from pathlib import Path
 
-import yaml
-from pydantic import BaseModel, DirectoryPath, Field, root_validator
+from pydantic import BaseModel, DirectoryPath, Field, FilePath, root_validator
+
+from src.loader import gather_profiles_info, load_profile_configs
 
 
 class ProductName(str, Enum):
@@ -14,7 +15,7 @@ class ProductName(str, Enum):
 
 class OSName(str, Enum):
     WINDOWS = "nt"
-    LINUX = "linux"
+    LINUX = "posix"
     MACOS = "macos"
 
 
@@ -28,52 +29,48 @@ class InfoType(str, Enum):
     LIKED = "liked"
 
 
-class History(BaseModel):
-    db_type: str = Field(alias="type")
-    datasource: str = Field(alias="file")
+class BaseHistory(BaseModel):
+    db_type: str
+    db_file: str
     collection: str
     fields: list[str] = Field(alias="fields")
+
+
+class ProfileHistory(BaseHistory):
+    db_path: FilePath
 
 
 class Locations(BaseModel):
     profiles: list[str]
     paths: list[DirectoryPath] = Field(alias=OSName(os.name).value)
+    profile_paths: dict[str, DirectoryPath] = Field(default_factory=list)
 
     @root_validator(pre=True)
     def discard_bad_paths(cls, values):
         values[OSName(os.name).value] = [
-            path_
-            for path_ in values[OSName(os.name).value]
-            if Path(path_).exists()
+            Path(path_).expanduser().resolve()
+            for path_ in values.get(OSName(os.name).value)
+            if path_ and Path(path_).expanduser().resolve().exists()
             ]
         return values
+
+    @root_validator()
+    def make_profile_paths(cls, values):
+        values["profile_paths"] = {
+            profile_: list(path_.glob(f"*{profile_}"))[0]
+            for path_ in values["paths"]
+            for profile_ in values["profiles"]
+            }
+        return values
+
+
+class ProfileInfo(BaseModel):
+    product: ProductName
+    profile_name: str
+    history: ProfileHistory
 
 
 class Browser(BaseModel):
     name: ProductName
-    history: History
+    history: BaseHistory
     locations: Locations
-
-
-def make_profile(config_dirpath: Path):
-    fields = yaml.safe_load((config_dirpath / "fields.yml").read_text())["local"]
-    locations = yaml.safe_load((config_dirpath / "locations.yml").read_text())["local"]
-
-    if fields.keys() == locations.keys():
-        browser_names = fields.keys() | locations.keys()
-    else:
-        raise ValueError("Incomplete browser config")
-
-    return [
-        Browser(
-            name=browser,
-            history=fields[browser][InfoType.HISTORY],
-            locations=locations[browser],
-            )
-        for browser in browser_names
-        ]
-
-
-if __name__ == "__main__":
-    local_browsers = make_profile(config_dirpath=Path("../configuration"))
-    local_browsers
