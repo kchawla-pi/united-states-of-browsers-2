@@ -4,8 +4,6 @@ from pathlib import Path
 
 from pydantic import BaseModel, DirectoryPath, Field, FilePath, root_validator
 
-from src.loader import gather_profiles_info, load_profile_configs
-
 
 class ProductName(str, Enum):
     FIREFOX = "firefox"

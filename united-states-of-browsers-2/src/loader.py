@@ -24,7 +24,7 @@ def load_profile_configs(config_dirpath: Path):
         ]
 
 
-def gather_profiles_info(profile_data: Browser):
+def make_profiles_info(profile_data: Browser):
     return [
         ProfileInfo(
             product=profile_data.name,
@@ -37,6 +37,10 @@ def gather_profiles_info(profile_data: Browser):
         ]
 
 
-def make_proflies_info():
-    local_browsers = load_profile_configs(config_dirpath=Path("../configuration"))
-    return [gather_profiles_info(browser) for browser in local_browsers if browser.locations.profile_paths]
+def gather_profiles_info():
+    local_browsers = load_profile_configs(config_dirpath=Path("../configuration/browsers"))
+    return {browser.name: make_profiles_info(browser) for browser in local_browsers if browser.locations.profile_paths}
+
+
+loaded = gather_profiles_info()
+...
