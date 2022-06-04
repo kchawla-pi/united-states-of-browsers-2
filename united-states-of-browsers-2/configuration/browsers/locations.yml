@@ -17,3 +17,9 @@ local:
       - C:\\Users\\kshit_7khjmc8\\AppData\\Local\\Microsoft\\Edge\\User Data
     posix:
       - ~/.var/app/com.microsoft.Edge/config/microsoft-edge
+
+  chrome:
+    profiles:
+      - Default
+    posix:
+      - /home/kshitijchawla/.config/google-chrome

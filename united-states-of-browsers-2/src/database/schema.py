@@ -1,6 +1,8 @@
 from sqlalchemy import Column, Integer, Text, String
 from sqlalchemy.orm import declarative_base
 
+from value_objects import ProductName
+
 Base = declarative_base()
 
 
@@ -38,6 +40,13 @@ class ChromiumHistorySchema(HistorySchema):
     hidden = Column(Integer)
     last_visit_time = Column(Integer)
     typed_count = Column(Integer)
+
+
+SchemaOptions = {
+    ProductName.FIREFOX: FirefoxHistorySchema,
+    ProductName.EDGE: ChromiumHistorySchema,
+    ProductName.CHROME: ChromiumHistorySchema
+    }
 
 
 class MergedHistorySchema(HistorySchema):

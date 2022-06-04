@@ -24,3 +24,17 @@ local:
         - typed_count
         - last_visit_time
         - hidden
+
+  chrome:
+    history:
+      db_type: sqlite
+      db_file: History
+      collection: urls
+      fields:
+        - id
+        - url
+        - title
+        - visit_count
+        - typed_count
+        - last_visit_time
+        - hidden
