@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bb87b88-acaa-4ae8-8aee-9764cd2ccd17" name="Changes" comment="Created &amp; ran initial schema for Firefox">
-      <change afterPath="$PROJECT_DIR$/united-states-of-browsers-2/configuration/app.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/database/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/database/db_reader.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/database/schema.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/database/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/scaffold.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/UnitedStatesOfBrowsers 2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/UnitedStatesOfBrowsers 2.iml" afterDir="false" />
+    <list default="true" id="7bb87b88-acaa-4ae8-8aee-9764cd2ccd17" name="Changes" comment="Reading history from Firefox &amp; Edge defined in config">
+      <change afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/config_loader/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/config_loader/entities.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/config_loader/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/history_reader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/united-states-of-browsers-2/configuration/browsers/locations.yml" beforeDir="false" afterPath="$PROJECT_DIR$/united-states-of-browsers-2/configuration/browsers/locations.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/united-states-of-browsers-2/src/database.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/united-states-of-browsers-2/src/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/united-states-of-browsers-2/src/schema.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/united-states-of-browsers-2/__archived/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/united-states-of-browsers-2/__archived/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/united-states-of-browsers-2/src/database/db_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/database/db_reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/united-states-of-browsers-2/src/database/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/database/schema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/united-states-of-browsers-2/src/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/config_loader/loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/united-states-of-browsers-2/src/scaffold.py" beforeDir="false" afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/scaffold.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/united-states-of-browsers-2/src/value_objects.py" beforeDir="false" afterPath="$PROJECT_DIR$/united-states-of-browsers-2/src/value_objects.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,11 +100,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/united-states-of-browsers-2/src/config_loader" />
       <recent name="$PROJECT_DIR$/united-states-of-browsers-2/src/database" />
       <recent name="$PROJECT_DIR$/united-states-of-browsers-2/src/database/" />
       <recent name="C:\Users\kshit_7khjmc8\Projects\kchawla-pi\united-states-of-browsers\united-states-of-browsers-2" />
       <recent name="C:\Users\kshit_7khjmc8\Projects\kchawla-pi\united-states-of-browsers\united-states-of-browsers" />
-      <recent name="C:\Users\kshit_7khjmc8\Projects\kchawla-pi\united-states-of-browsers\united-states-of-browsers-2\ports" />
     </key>
   </component>
   <component name="RunManager" selected="Python.scaffold">
@@ -154,6 +152,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="history_reader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="UnitedStatesOfBrowsers 2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/united-states-of-browsers-2/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/united-states-of-browsers-2/src/history_reader.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UnitedStatesOfBrowsers 2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -167,7 +187,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/united-states-of-browsers-2/src/loader.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/united-states-of-browsers-2/src/config_loader/loader.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -198,35 +218,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="value_objects" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="UnitedStatesOfBrowsers 2" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/united-states-of-browsers-2/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/united-states-of-browsers-2/src/value_objects.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.scaffold" />
+        <item itemvalue="Python.history_reader" />
         <item itemvalue="Python.db_reader" />
         <item itemvalue="Python.loader" />
         <item itemvalue="Python.database" />
-        <item itemvalue="Python.value_objects" />
       </list>
     </recent_temporary>
   </component>
@@ -265,6 +263,7 @@
       <workItem from="1653749243504" duration="18606000" />
       <workItem from="1654025668071" duration="5880000" />
       <workItem from="1654285268332" duration="3838000" />
+      <workItem from="1654355326357" duration="5827000" />
     </task>
     <task id="LOCAL-00001" summary="Config files + loader + requirements">
       <created>1652738414264</created>
@@ -294,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653519731918</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Reading history from Firefox &amp; Edge defined in config">
+      <created>1654355408251</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1654355408251</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,7 +322,8 @@
     <MESSAGE value="Browser config now in a separate subdir" />
     <MESSAGE value="Created simple config loader" />
     <MESSAGE value="Created &amp; ran initial schema for Firefox" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created &amp; ran initial schema for Firefox" />
+    <MESSAGE value="Reading history from Firefox &amp; Edge defined in config" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reading history from Firefox &amp; Edge defined in config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -327,7 +334,7 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/united-states-of-browsers-2/src/loader.py</url>
+          <url>file://$PROJECT_DIR$/united-states-of-browsers-2/src/config_loader/loader.py</url>
           <line>52</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -357,12 +364,13 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/UnitedStatesOfBrowsers_2$scaffold.coverage" NAME="scaffold Coverage Results" MODIFIED="1654287250908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/united-states-of-browsers-2/src" />
+    <SUITE FILE_PATH="coverage/UnitedStatesOfBrowsers_2$scaffold.coverage" NAME="scaffold Coverage Results" MODIFIED="1654361664808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/united-states-of-browsers-2/src" />
     <SUITE FILE_PATH="coverage/UnitedStatesOfBrowsers_2$database.coverage" NAME="database Coverage Results" MODIFIED="1653771425216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/united-states-of-browsers-2/src" />
     <SUITE FILE_PATH="coverage/UnitedStatesOfBrowsers_2$reader.coverage" NAME="reader Coverage Results" MODIFIED="1654031976156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/united-states-of-browsers-2/src" />
     <SUITE FILE_PATH="coverage/united_states_of_browsers$load_configuration.coverage" NAME="load_configuration Coverage Results" MODIFIED="1651936919059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/united-states-of-browsers-2" />
     <SUITE FILE_PATH="coverage/united_states_of_browsers$database.coverage" NAME="database Coverage Results" MODIFIED="1652569751147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/united-states-of-browsers-2/src" />
     <SUITE FILE_PATH="coverage/UnitedStatesOfBrowsers_2$loader.coverage" NAME="loader Coverage Results" MODIFIED="1654025811533" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/united-states-of-browsers-2/src" />
     <SUITE FILE_PATH="coverage/united_states_of_browsers$value_objects.coverage" NAME="value_objects Coverage Results" MODIFIED="1652737877112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/united-states-of-browsers-2/src" />
+    <SUITE FILE_PATH="coverage/UnitedStatesOfBrowsers_2$history_reader.coverage" NAME="history_reader Coverage Results" MODIFIED="1654359276732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/united-states-of-browsers-2/src" />
   </component>
 </project>

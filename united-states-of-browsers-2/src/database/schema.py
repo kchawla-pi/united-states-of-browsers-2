@@ -1,8 +1,5 @@
-from enum import Enum
-
 from sqlalchemy import Column, Integer, Text, String
 from sqlalchemy.orm import declarative_base
-
 
 Base = declarative_base()
 
@@ -41,12 +38,6 @@ class ChromiumHistorySchema(HistorySchema):
     hidden = Column(Integer)
     last_visit_time = Column(Integer)
     typed_count = Column(Integer)
-
-
-class HistorySchemaOptions(Enum):
-    EDGE = ChromiumHistorySchema
-    CHROME = ChromiumHistorySchema
-    FIREFOX = FirefoxHistorySchema
 
 
 class MergedHistorySchema(HistorySchema):

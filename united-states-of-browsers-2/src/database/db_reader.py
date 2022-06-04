@@ -9,7 +9,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Session
 
-from src.loader import gather_profiles_info
+from config_loader.loader import gather_profiles_info
 from database.schema import ChromiumHistorySchema, FirefoxHistorySchema, HistorySchema
 from src.value_objects import ProductName, ProfileInfo
 

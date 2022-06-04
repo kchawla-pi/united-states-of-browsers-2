@@ -1,50 +1,44 @@
+from dataclasses import dataclass
 from pathlib import Path
 from pprint import pprint
-from typing import Mapping, Sequence, Type
+from typing import Sequence
 
-from pydantic.dataclasses import dataclass
-
-from src.loader import gather_profiles_info
-from database.db_reader import DBReader, RelationalDBReader
-from database.schema import ChromiumHistorySchema, HistorySchema, FirefoxHistorySchema
-from src.value_objects import ProductName, ProfileInfo
+from history_reader import ProductHistory
+from config_loader.loader import gather_profiles_info
+from database.db_reader import RelationalDBReader
+from database.schema import ChromiumHistorySchema, FirefoxHistorySchema
+from src.value_objects import ProductName
 
 
 @dataclass
 class Orchestrator:
-    product_profiles: Mapping[ProductName, Sequence[ProfileInfo]]
-    history_schemas: Mapping[ProductName, Type[HistorySchema]]
-    history_readers: Mapping[ProductName, Type[DBReader]]
+    hsitory_readers: Sequence[ProductHistory]
 
-    def _make_history_yielders_per_product_profiles(self, product_name: ProductName) -> list[DBReader]:
-        return [
-            self.history_readers[product_name](
-                profile_config=profile_,
-                history_schema=self.history_schemas[product_name],
-                )
-            for profile_ in self.product_profiles[product_name]
-            ]
-
-    def _make_history_yielders_all_product_profiles(self):
-        return[
-            *self._make_history_yielders_per_product_profiles(product_name=ProductName.EDGE),
-            *self._make_history_yielders_per_product_profiles(product_name=ProductName.FIREFOX),
-            ]
-
-    def _merge_histories_for_all_product_profiles(self) -> list[HistorySchema]:
-        return [
+    def _make_history_yielders(self):
+        return (
             entry
-            for product in self._make_history_yielders_all_product_profiles()
-            for entry in product.yield_history()
-            ]
+            for reader in self.hsitory_readers
+            for entry in reader._make_history_yielders()
+            )
 
 
 if __name__ == "__main__":
     profiles_info = gather_profiles_info(config_dirpath=Path("../configuration/browsers"))
     orchestrator = Orchestrator(
-        product_profiles=profiles_info,
-        history_schemas={ProductName.FIREFOX: FirefoxHistorySchema, ProductName.EDGE: ChromiumHistorySchema},
-        history_readers={ProductName.FIREFOX: RelationalDBReader, ProductName.EDGE: RelationalDBReader}
+        hsitory_readers=[
+            ProductHistory(
+                product=ProductName.FIREFOX,
+                profiles=profiles_info[ProductName.FIREFOX],
+                schema=FirefoxHistorySchema,
+                reader=RelationalDBReader,
+                ),
+            ProductHistory(
+                product=ProductName.EDGE,
+                profiles=profiles_info[ProductName.EDGE],
+                schema=ChromiumHistorySchema,
+                reader=RelationalDBReader,
+                ),
+            ]
         )
-    pprint(orchestrator._merge_histories_for_all_product_profiles())
+    pprint(list(orchestrator._make_history_yielders()))
     ...

@@ -47,6 +47,6 @@ def gather_profiles_info(config_dirpath: Path) -> dict[ProductName, list[Profile
 
 
 if __name__ == "__main__":
-    profiles_config = gather_profiles_info(config_dirpath=Path("../configuration/browsers"))
-    app_config = load_app_config(config_dirpath=Path("../configuration"))
+    profiles_config = gather_profiles_info(config_dirpath=Path("../../configuration/browsers"))
+    app_config = load_app_config(config_dirpath=Path("../../configuration"))
     ...
