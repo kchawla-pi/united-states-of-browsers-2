@@ -16,4 +16,4 @@ local:
     nt:
       - C:\\Users\\kshit_7khjmc8\\AppData\\Local\\Microsoft\\Edge\\User Data
     posix:
-      - null
+      - ~/.var/app/com.microsoft.Edge/config/microsoft-edge

@@ -1,6 +1,9 @@
+import functools
 import os
+from abc import ABCMeta
 from enum import Enum
 from pathlib import Path
+from typing import TypeVar
 
 from pydantic import BaseModel, DirectoryPath, Field, FilePath, root_validator
 
@@ -54,12 +57,22 @@ class Locations(BaseModel):
 
     @root_validator()
     def make_profile_paths(cls, values):
+
         values["profile_paths"] = {
-            profile_: list(path_.glob(f"*{profile_}"))[0]
+            profile_: Locations.glob_profile_path(path_, profile_)
             for path_ in values["paths"]
             for profile_ in values["profiles"]
+            if Locations.glob_profile_path(path_, profile_)
             }
         return values
+
+    @staticmethod
+    @functools.lru_cache
+    def glob_profile_path(path, profile):
+        try:
+            return list(path.glob(f"*{profile}"))[0]
+        except IndexError:
+            return None
 
 
 class ProfileInfo(BaseModel):
@@ -72,3 +85,6 @@ class Browser(BaseModel):
     name: ProductName
     history: BaseHistory
     locations: Locations
+
+
+# HistoryReader = TypeVar("HistoryReader")

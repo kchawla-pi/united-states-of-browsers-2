@@ -2,7 +2,11 @@ from pathlib import Path
 
 import yaml
 
-from src.value_objects import Browser, InfoType, ProfileHistory, ProfileInfo
+from src.value_objects import Browser, InfoType, ProductName, ProfileHistory, ProfileInfo
+
+
+def load_app_config(config_dirpath: Path):
+    return yaml.safe_load((config_dirpath / "app.yml").read_text())
 
 
 def load_profile_configs(config_dirpath: Path):
@@ -37,10 +41,12 @@ def make_profiles_info(profile_data: Browser):
         ]
 
 
-def gather_profiles_info():
-    local_browsers = load_profile_configs(config_dirpath=Path("../configuration/browsers"))
-    return {browser.name: make_profiles_info(browser) for browser in local_browsers if browser.locations.profile_paths}
+def gather_profiles_info(config_dirpath: Path) -> dict[ProductName, list[ProfileInfo]]:
+    local_browsers = load_profile_configs(config_dirpath=config_dirpath)
+    return {ProductName(browser.name): make_profiles_info(browser) for browser in local_browsers if browser.locations.profile_paths}
 
 
-loaded = gather_profiles_info()
-...
+if __name__ == "__main__":
+    profiles_config = gather_profiles_info(config_dirpath=Path("../configuration/browsers"))
+    app_config = load_app_config(config_dirpath=Path("../configuration"))
+    ...
